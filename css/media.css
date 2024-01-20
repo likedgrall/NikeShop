@@ -1,0 +1,30 @@
+@media (max-width: 1235px) {
+    header .header__raits {
+        width: 290px ;
+    }
+    header .header__info h1 {
+        font-size: 48px;
+    }
+    header .header__raits .models h4 {
+        font-size: 20px;
+    }
+    header .header__raits .models span {
+        font-size: 20px;
+    }
+    header .header__raits .clients h4 {
+        font-size: 20px;
+    }
+    header .header__raits .clients span {
+        font-size: 20px;
+    }
+    header .header__raits hr {
+        height: 50px;
+    }
+    header img {
+        width: 400px;
+    }
+    .about-us_blockimg {
+        width: 420px;
+        height: 420px;
+    }
+}
