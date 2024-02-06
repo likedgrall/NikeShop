@@ -7,7 +7,7 @@ let Store = {
             desription: "Баскетбольные кроссовки",
             raits: "4.9",
             class: "woman",
-        },   
+        },
         {
             img: "2",
             name: "Phantom GX Pro",
@@ -15,15 +15,15 @@ let Store = {
             desription: "Футбольные бутсы для игры на твердом грунте",
             raits: "4.2",
             class: "boots",
-        },  
-         {
+        },
+        {
             img: "3",
             name: "Nike Air Max Plus",
             cost: "240 $",
             desription: "Мужские универсальные кроссовки",
             raits: "4.9",
             class: "man",
-        },  
+        },
         {
             img: "4",
             name: "LeBron XXI `Freshwater`",
@@ -31,7 +31,7 @@ let Store = {
             desription: "Баскетбольные кроссовки",
             raits: "4.9",
             class: "woman",
-        },  
+        },
         {
             img: "5",
             name: "Phantom GX Pro",
@@ -39,7 +39,7 @@ let Store = {
             desription: "Низкие бутсы для исскуственного покрытия",
             raits: "4.0",
             class: "boots",
-        }, 
+        },
         {
             img: "6",
             name: "Phantom GX Academy",
@@ -47,7 +47,7 @@ let Store = {
             desription: "Низкие бутсы для мягкого грунта",
             raits: "4.9",
             class: "boots",
-        },  
+        },
         {
             img: "7",
             name: "Luka 2 `Trick Shot`",
@@ -55,7 +55,7 @@ let Store = {
             desription: "Баскетбольные кроссовки",
             raits: "4.9",
             class: "man",
-        }, 
+        },
         {
             img: "8",
             name: "Mercurial Superfly",
@@ -63,7 +63,7 @@ let Store = {
             desription: "Футбольные бутсы для игры на твердом грунте",
             raits: "4.9",
             class: "boots",
-        },  
+        },
         {
             img: "9",
             name: "Zion 2",
@@ -71,7 +71,7 @@ let Store = {
             desription: "Баскетбольные кроссовки",
             raits: "4.9",
             class: "woman",
-        },  
+        },
         {
             img: "10",
             name: "Pegasus Trail 4",
@@ -79,7 +79,7 @@ let Store = {
             desription: "Водонепроницаемые женские кроссовки для бега",
             raits: "4.9",
             class: "woman",
-        }, 
+        },
         {
             img: "11",
             name: "Alphafly 3 Proto",
@@ -87,7 +87,7 @@ let Store = {
             desription: "Женская обвуь для шоссейных гонок",
             raits: "4.9",
             class: "woman",
-        },  
+        },
     ],
     NewModel: [
         {
@@ -120,48 +120,111 @@ let Store = {
         }
     ]
 
-    
+
 }
 
+
 const cardList = document.querySelector(".cards-list");
-for (let i = 0; i < Store.Categories.length; i++) {
-    const cardInfo = Store.Categories[i];
-    const cardDiv = document.createElement("div");
-    cardDiv.className = "categories-card";
-    cardDiv.innerHTML = 
-        `<div class="categories-card__photo">
-            <svg width="22" height="20" class="heart" viewBox="0 0 22 20" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M0.5 6.76466V6.96606C0.5 8.78643 1.21424 10.53 2.48915 11.7571C2.48917 11.7571 2.48919 11.7571 2.48922 11.7571L9.55383 18.559C9.94943 18.9625 10.4854 19.107 11 19.107C11.4826 19.107 12.0152 18.9587 12.4071 18.559L19.4717 11.7571C19.4717 11.7571 19.4718 11.7571 19.4718 11.7571C20.741 10.5355 21.5 8.79447 21.5 6.96606V6.76466C21.5 3.71422 19.3448 1.07926 16.3981 0.592522C14.4709 0.240837 12.4703 0.90505 11.0708 2.34827L10.9847 2.43698L10.8825 2.34031C9.48323 0.902608 7.48646 0.241484 5.5628 0.592522C2.61131 1.08006 0.5 3.71936 0.5 6.76466Z"
-                    stroke="#FEFFF7" />
-            </svg>
-            <img src="../img/cross/${cardInfo.img}.png" alt="">
-        </div>
-        <div class="categories-card__info">
-            <div class="categories-card__decription">
-                <div class="info-name">
-                    <h3>${cardInfo.name}</h3>
-                    <label for="">${cardInfo.cost}</label>
+function categoriesCardRender(categoriesName) {
+    cardList.innerHTML = "";
+    if (categoriesName == "all") {
+        for (let i = 0; i < Store.Categories.length; i++) {
+            const cardInfo = Store.Categories[i];
+            const cardDiv = document.createElement("div");
+            cardDiv.className = "categories-card";
+            cardDiv.innerHTML =
+                `<div class="categories-card__photo">
+                    <svg width="22" height="20" class="heart" viewBox="0 0 22 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0.5 6.76466V6.96606C0.5 8.78643 1.21424 10.53 2.48915 11.7571C2.48917 11.7571 2.48919 11.7571 2.48922 11.7571L9.55383 18.559C9.94943 18.9625 10.4854 19.107 11 19.107C11.4826 19.107 12.0152 18.9587 12.4071 18.559L19.4717 11.7571C19.4717 11.7571 19.4718 11.7571 19.4718 11.7571C20.741 10.5355 21.5 8.79447 21.5 6.96606V6.76466C21.5 3.71422 19.3448 1.07926 16.3981 0.592522C14.4709 0.240837 12.4703 0.90505 11.0708 2.34827L10.9847 2.43698L10.8825 2.34031C9.48323 0.902608 7.48646 0.241484 5.5628 0.592522C2.61131 1.08006 0.5 3.71936 0.5 6.76466Z"
+                            stroke="#FEFFF7" />
+                    </svg>
+                    <img src="../img/cross/${cardInfo.img}.png" alt="">
                 </div>
-                <p>${cardInfo.desription}</p>
-                <div class="categorie__raits">
-                    <span>${cardInfo.raits}</span>
-                    <hr>
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                <div class="categories-card__info">
+                    <div class="categories-card__decription">
+                        <div class="info-name">
+                            <h3>${cardInfo.name}</h3>
+                            <label for="">${cardInfo.cost}</label>
+                        </div>
+                        <p>${cardInfo.desription}</p>
+                        <div class="categorie__raits">
+                            <span>${cardInfo.raits}</span>
+                            <hr>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
                     </div>
+                    <a href="#">Купить сейчас</a>
                 </div>
-            </div>
-            <a href="#">Купить сейчас</a>
-        </div>
-        `;
-        cardList.appendChild(cardDiv);
+                `;
+            cardList.appendChild(cardDiv);
+        }
+    }
+    else {
+        for (let i = 0; i < Store.Categories.length; i++) {
+            if (Store.Categories[i].class == categoriesName) {
+                const cardInfo = Store.Categories[i];
+                const cardDiv = document.createElement("div");
+                cardDiv.className = "categories-card";
+                cardDiv.innerHTML =
+                    `<div class="categories-card__photo">
+                    <svg width="22" height="20" class="heart" viewBox="0 0 22 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0.5 6.76466V6.96606C0.5 8.78643 1.21424 10.53 2.48915 11.7571C2.48917 11.7571 2.48919 11.7571 2.48922 11.7571L9.55383 18.559C9.94943 18.9625 10.4854 19.107 11 19.107C11.4826 19.107 12.0152 18.9587 12.4071 18.559L19.4717 11.7571C19.4717 11.7571 19.4718 11.7571 19.4718 11.7571C20.741 10.5355 21.5 8.79447 21.5 6.96606V6.76466C21.5 3.71422 19.3448 1.07926 16.3981 0.592522C14.4709 0.240837 12.4703 0.90505 11.0708 2.34827L10.9847 2.43698L10.8825 2.34031C9.48323 0.902608 7.48646 0.241484 5.5628 0.592522C2.61131 1.08006 0.5 3.71936 0.5 6.76466Z"
+                            stroke="#FEFFF7" />
+                    </svg>
+                    <img src="../img/cross/${cardInfo.img}.png" alt="">
+                </div>
+                <div class="categories-card__info">
+                    <div class="categories-card__decription">
+                        <div class="info-name">
+                            <h3>${cardInfo.name}</h3>
+                            <label for="">${cardInfo.cost}</label>
+                        </div>
+                        <p>${cardInfo.desription}</p>
+                        <div class="categorie__raits">
+                            <span>${cardInfo.raits}</span>
+                            <hr>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">Купить сейчас</a>
+                </div>
+                `;
+                cardList.appendChild(cardDiv);
+            }
+
+        }
+    }
 }
+const categories = document.querySelectorAll(".categories__buttons button");
+for (let i = 0; i < categories.length; i++) {
+    categories[i].onclick = function() {
+        for (let k = 0; k < categories.length; k++) {
+            categories[k].classList.remove("categories_active");
+        }
+        categoriesCardRender(categories[i].className);
+        categories[i].classList.add("categories_active");
+    }
+
+}
+
+categoriesCardRender("all");
+
 
 // Новые модели
 
@@ -188,7 +251,9 @@ for (let i = 0; i < Store.NewModel.length; i++) {
             <i class="fa-solid fa-star"></i>
         </div>
     </div>
-    <a href="#">В корзину</a>
+    <button style="color: ${newModelCardInfo.cardColor}"><i class="fa-solid fa-circle-check"></i> В корзину</button>
     `
     newModelListDiv.appendChild(newModelCardDiv);
 }
+
+// Новые модели при нажатии на кнопку
