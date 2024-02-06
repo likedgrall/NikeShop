@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+
 /* слайдер */
 
 .swiper {
@@ -17,6 +18,7 @@ body {
     --textGray: #5C5C5C;
     --grayGreen: #d3d6b9;
     background-color: var(--White);
+    user-select: none;
 }
 
 .container {
@@ -41,7 +43,17 @@ nav {
     z-index: 2;
     background-color: var(--White);
 }
-
+.nav__logo {
+    z-index: 3;
+}
+.nav__logo path {
+    fill: var(--YellowGreen);
+    transition: 0.6s;
+    transition-timing-function: cubic-bezier(0.7, -0.5, 0.3, 1);
+}
+.hamburger {
+    display: none;
+}
 .nav__elements {
     display: flex;
     align-items: center;
@@ -114,6 +126,24 @@ nav {
     color: var(--YellowGreen);
 }
 
+.shop-case {
+    width: 520px;
+    min-height: 320px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    right: -520px;
+    padding: 20px;
+    transition: 0.4s;
+    background-color: var(--White);
+    z-index: 4;
+}
+
+.shop-case_active {
+    right: 520px;
+}
 
 /* Хеадер */
 
@@ -173,7 +203,6 @@ header {
 .header__info button:hover {
     background: transparent;
     color: var(--YellowGreen);
-
 }
 
 .header__raits {
@@ -269,6 +298,59 @@ header {
     font-weight: 300;
     font-family: Comfortaa;
 }
+
+
+/* Хеадер профиль */
+
+
+.profile-header__elements {
+    display: flex;
+}
+
+.profile-header__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-header__info img {
+    width: 400px;
+}
+
+.profile-header__info h1 {
+    font-size: 32px;
+    font-weight: 700;
+    font-family: Montserrat;
+    margin-bottom: 30px;
+}
+
+.profile-info {
+    gap: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-info a {
+    padding: 15px 5px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 17px -8px rgba(0, 0, 0, 0.2);
+    border: 0.5px solid rgba(0, 0, 0, 0.05);
+    color: var(--YellowGreen);
+    transition: 0.4s;
+    text-align: center;
+}
+.profile-info a.red  {
+    color: rgb(253, 36, 36);
+    border-color: rgb(253, 36, 36);
+}
+.profile-info a:hover {
+    border-color: var(--YellowGreen);
+    box-shadow: 0px 0px 17px -8px;
+}
+.profile-info a.red:hover {
+    border-color: rgb(253, 36, 36);
+}
+
 
 
 /* о нас */
@@ -472,7 +554,7 @@ header {
     margin-bottom: 13px;
 }
 
-.categories__buttons ._active {
+.categories__buttons .categories_active {
     background-color: var(--YellowGreen);
     color: var(--White);
 }
@@ -519,6 +601,7 @@ header {
     color: var(--White);
     cursor: pointer;
     transition: 0.4s;
+    z-index: 2;
 }
 
 .categories-card__info {
@@ -607,7 +690,6 @@ header {
 /* Модели */
 .new-model {
     padding: 62px 0;
-
 }
 
 .new-model__elements {
@@ -681,22 +763,50 @@ header {
     color: var(--White);
 }
 
-.newmodel-card a {
-    padding: 5px 10px;
+.newmodel-card button {
+    display: flex;
+    padding: 4px 2px;
     font-size: 16px;
     line-height: 24px;
     font-family: Comfortaa;
     font-weight: 700;
     background-color: var(--White);
-    color: var(--YellowGreen);
     border-radius: 40px;
     z-index: 1;
     position: absolute;
     bottom: 20px;
     left: 20px;
-    width: 106px;
+    width: 115px;
     transition: 0.4s;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--White);
+}
+
+.newmodel-card button:hover {
+    background: transparent;
+    color: var(--White) !important;
+}
+
+.newmodel-card button i {
+    opacity: 0;
+    transition: 0.4s;
+    margin-left: -16px;
+    visibility: hidden
+}
+
+.newmodel-card button.check_active i {
+    opacity: 1;
+    visibility: visible;
+    margin-left: 0;
+}
+
+.newmodel-card button.check_active {
+    background-color: var(--Black);
+    color: var(--White) !important;
+    border: 1px solid var(--Black);
 }
 
 .newmodel-card__bg {
@@ -727,7 +837,7 @@ header {
     bottom: -44px;
 }
 
-.newmodel-card:hover a {
+.newmodel-card:hover button {
     width: calc(100% - 40px);
 }
 
@@ -745,6 +855,8 @@ header {
     transition: 0.4s;
     font-size: 20px;
     color: var(--White);
+    z-index: 2;
+    cursor: pointer;
 }
 
 .heart_active path {
@@ -770,27 +882,32 @@ footer {
     width: 100%;
     background-color: rgb(37, 37, 37);
 }
+
 .footer__elements {
     display: flex;
     justify-content: space-between;
     padding: 70px;
 }
+
 .footer__pokupatel {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
+
 .footer__pokupatel h3 {
     font-size: 22px;
     margin-bottom: 30px;
     color: var(--White);
 }
+
 .footer__pokupatel a {
     color: #616161;
     text-decoration: none;
 }
+
 .footer__pokupatel a:hover {
-    
+
     color: var(--White);
 }
 
@@ -799,17 +916,20 @@ footer {
     flex-direction: column;
     gap: 4px;
 }
+
 .footer__company h3 {
     font-size: 22px;
     margin-bottom: 30px;
     color: var(--White);
 }
+
 .footer__company a {
     color: #616161;
     text-decoration: none;
 }
+
 .footer__company a:hover {
-    
+
     color: var(--White);
 }
 
@@ -818,18 +938,22 @@ footer {
     flex-direction: column;
     gap: 4px;
 }
+
 .footer__contact h3 {
     font-size: 22px;
     margin-bottom: 30px;
     color: var(--White);
 }
+
 .footer__contact a {
     color: #616161;
     text-decoration: none;
 }
+
 .footer__contact a:hover {
     color: var(--White);
 }
+
 footer p {
     text-align: center;
     color: var(--White);
