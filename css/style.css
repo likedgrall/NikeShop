@@ -354,36 +354,36 @@ header {
 
 
 /* о нас */
+section {
+    overflow: hidden;
+}
 
-
-.about-us {}
+.about-us {
+    padding-top: 50px;
+}
 
 .about-us__elements {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 80px;
-    padding-right: 120px;
 }
 
 .about-us__photo {
     display: block;
-    position: relative;
 }
-
-.about-us__photo img {
-    position: absolute;
-    top: -16%;
-    width: 140%;
-    left: -20%;
-}
-
 .about-us_blockimg {
     width: 520px;
     height: 520px;
     border-radius: 20px;
     background-color: var(--grayGreen);
-    z-index: -1;
+    position: relative;
+}
+
+.about-us_blockimg img {
+    position: absolute;
+    top: -16%;
+    width: 140%;
+    left: -20%;
 }
 
 .about-us__info {
@@ -402,12 +402,13 @@ header {
     color: var(--YellowGreen);
 }
 
-.about-us__info p {
+.about-us__info > p {
     font-size: 16px;
     line-height: 24px;
     font-family: Comfortaa;
     font-weight: 400;
     margin-bottom: 45px;
+    max-width: 580px;
 }
 
 .about-us__info p span {
@@ -416,8 +417,8 @@ header {
 
 .about-us__info .design-cost {
     display: flex;
-    gap: 20px;
     flex-direction: column;
+    gap: 20px;
 }
 
 .design {
@@ -435,6 +436,7 @@ header {
     position: relative;
     margin-right: 20px;
     border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .design .block i {
@@ -453,6 +455,7 @@ header {
     position: relative;
     border-radius: 10px;
     margin-right: 20px;
+    flex-shrink: 0;
 }
 
 .cost .block i {
@@ -562,6 +565,9 @@ header {
 .categories__buttons button:hover {
     box-shadow: 0px 0px 3px 1px;
 }
+.categories__buttons i {
+    display: none;
+}
 
 .cards-list {
     overflow-x: scroll;
@@ -574,7 +580,6 @@ header {
     max-width: 400px;
     width: 100%;
     flex-shrink: 0;
-    height: 440px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -591,8 +596,11 @@ header {
     justify-content: center;
     align-items: center;
     position: relative;
+    flex-shrink: 0;
 }
-
+.categories-card__photo img {
+    width: 80%;
+}
 .categories-card__photo svg {
     position: absolute;
     top: 20px;
@@ -610,24 +618,28 @@ header {
     flex-direction: column;
     flex-grow: 1;
     justify-content: space-between;
+    gap: 14px;
 }
 
 .info-name {
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
+    gap: 10px;
 }
 
 .info-name h3 {
     font-size: 20px;
     font-family: Comfortaa;
     font-weight: 700;
+    line-height: 130%;
 }
 
 .info-name label {
     font-size: 20px;
     font-weight: 700;
     font-family: Comfortaa;
+    min-width: 60px;
 }
 
 .categories-card__info p {
@@ -637,6 +649,7 @@ header {
     max-width: 260px;
     color: var(--textGray);
     margin-bottom: 16px;
+    line-height: 150%;
 }
 
 .categorie__raits,
@@ -823,10 +836,11 @@ header {
 .newmodel-card img {
     position: absolute;
     z-index: 2;
-    right: -50px;
+    right: -14%;
     top: 70px;
     transition: 0.4s;
     transform: rotate(-30deg);
+    width: 82%;
 }
 
 .newmodel-card:hover .newmodel-card__bg {
@@ -844,7 +858,7 @@ header {
 .newmodel-card:hover img {
     transform: rotate(0);
     top: 20px;
-    right: 30px;
+    right: 9%;
 }
 
 .newmodel-card svg {
