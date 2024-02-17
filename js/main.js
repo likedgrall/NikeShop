@@ -53,3 +53,16 @@ function menuClose() {
     navLogo.classList.remove("nav__logo_active");
     navProfile.classList.remove("nav__profile_active");
 }
+
+const aboutUsBigImg = document.querySelector(".about-us__photo");
+const aboutUsSmallImg = document.querySelector(".about-us_imgcontainer");
+const aboutUsBlockImg = `<div class="about-us_blockimg">
+                            <img src="../img/about-us.png" alt="">
+                        </div>
+                        `;
+
+if (window.innerWidth < 993) {
+    aboutUsSmallImg.innerHTML = aboutUsBlockImg;
+} else {
+    aboutUsBigImg.innerHTML = aboutUsBlockImg;
+}
